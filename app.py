@@ -1,34 +1,25 @@
 import turtle
-
 #Variable
 score_a=0
 score_b=0
+speed_ball = 30
 
-no= turtle.Turtle()
-
-
+no = turtle.Turtle()
 #Functions
 
 #For paddle_a
 
-def paddle_a_up():
-    y = paddle_a.ycor() #ycor returns the y coordinate
-    y += 30
+def paddle_a_up_down(speed):
+    y = paddle_a.ycor() 
+    y += speed
     paddle_a.sety(y)
-def paddle_a_down():
-    y = paddle_a.ycor() #ycor returns the y coordinate
-    y -= 30
-    paddle_a.sety(y)
+
 
 #For paddle_b
 
-def paddle_b_up():
-    y = paddle_b.ycor() #ycor returns the y coordinate
-    y += 30
-    paddle_b.sety(y)
-def paddle_b_down():
-    y = paddle_b.ycor() #ycor returns the y coordinate
-    y -= 30
+def paddle_b_up_down(speed):
+    y = paddle_b.ycor() 
+    y += speed
     paddle_b.sety(y)
 
 #Setting up the window
@@ -41,12 +32,12 @@ wn.tracer(0)
 
 # Setting up Paddle A
 paddle_a = turtle.Turtle()
-paddle_a.speed(0)   #speed of animation
-paddle_a.shape("square")  #by default it is 20 pixel x 20 pixel
+paddle_a.speed(0)  
+paddle_a.shape("square")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 paddle_a.color("white")
-paddle_a.penup() #So turtle doesn't draw line
-paddle_a.goto(-350,0) #Paddle start coordinaate
+paddle_a.penup() 
+paddle_a.goto(-350,0)
 
 # Setting up Paddle B
 
@@ -61,11 +52,11 @@ paddle_b.goto(350,0)
 # Setting up the Ball
 
 ball = turtle.Turtle()
-ball.speed(0)   #speed of animation
+ball.speed(0)  
 ball.shape("square")
 ball.color("white")
 ball.penup()
-ball.goto(0,0) #Start coordinaate
+ball.goto(0,0)
 ball.dx = 0.2
 ball.dy = 0.2
 
@@ -82,10 +73,10 @@ pen.write(f"Player A:{score_a}  Player B:{score_b}", align="center", font=("Cour
 
 # Keyboard binding
 wn.listen() #listen to keyboard input
-wn.onkeypress(paddle_a_up, "w")
-wn.onkeypress(paddle_a_down, "s")
-wn.onkeypress(paddle_b_up, "Up")
-wn.onkeypress(paddle_b_down, "Down")
+wn.onkeypress(paddle_a_up_down(speed_ball), "w")
+wn.onkeypress(paddle_a__up_down(-speed_ball), "s")
+wn.onkeypress(paddle_b_up_down(speed_ball), "Up")
+wn.onkeypress(paddle_b_up_down(speed_ball), "Down")
 
 #Main game loop
 while True:
