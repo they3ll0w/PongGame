@@ -69,7 +69,7 @@ pen.write(f"Player A:{score_a}  Player B:{score_b}", align="center", font=("Cour
 # Keyboard binding
 wn.listen() #listen to keyboard input
 wn.onkeypress(paddle_a_up_down(speed_ball), "w")
-wn.onkeypress(paddle_a__up_down(-speed_ball), "s")
+wn.onkeypress(paddle_a_up_down(-speed_ball), "s")
 wn.onkeypress(paddle_b_up_down(speed_ball), "Up")
 wn.onkeypress(paddle_b_up_down(speed_ball), "Down")
 
